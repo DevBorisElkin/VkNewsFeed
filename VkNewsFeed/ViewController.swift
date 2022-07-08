@@ -2,6 +2,9 @@
 //  ViewController.swift
 //  VkNewsFeed
 //
+//  Link to the course
+//  https://swiftbook.ru/content/27-index/
+//
 //  Created by test on 08.07.2022.
 //
 
