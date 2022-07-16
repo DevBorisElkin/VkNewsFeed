@@ -15,8 +15,28 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzh-Ss-Bbv">
+                                <rect key="frame" x="117" y="426" width="180" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="6qP-R6-7r7"/>
+                                    <constraint firstAttribute="height" constant="44" id="mfx-Fz-Oh6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Connect to VK">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="connectToVk:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eQM-ef-WVM"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bzh-Ss-Bbv" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="H4j-Dv-g9H"/>
+                            <constraint firstItem="Bzh-Ss-Bbv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="oTN-KB-0yj"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,8 @@
 		525B5D2B2882FE2A009472C1 /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		525B5D2D288301EE009472C1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D2C288301EE009472C1 /* AuthService.swift */; };
 		525B5D3028830B01009472C1 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525B5D2F28830B01009472C1 /* AuthViewController.storyboard */; };
+		525B5D3228831726009472C1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D3128831726009472C1 /* FeedViewController.swift */; };
+		525B5D3428831737009472C1 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525B5D3328831737009472C1 /* FeedViewController.storyboard */; };
 		52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE68062877907400DBCA3B /* AppDelegate.swift */; };
 		52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE68082877907400DBCA3B /* SceneDelegate.swift */; };
 		52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE680A2877907400DBCA3B /* AuthViewController.swift */; };
@@ -37,6 +39,8 @@
 		525B5D262882FDC5009472C1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		525B5D2C288301EE009472C1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		525B5D2F28830B01009472C1 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
+		525B5D3128831726009472C1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		525B5D3328831737009472C1 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		52DE68032877907400DBCA3B /* VkNewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DE68062877907400DBCA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DE68082877907400DBCA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,24 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		525B5D35288317C6009472C1 /* FeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				525B5D3128831726009472C1 /* FeedViewController.swift */,
+				525B5D3328831737009472C1 /* FeedViewController.storyboard */,
+			);
+			path = FeedViewController;
+			sourceTree = "<group>";
+		};
+		525B5D36288317DD009472C1 /* AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				52DE680A2877907400DBCA3B /* AuthViewController.swift */,
+				525B5D2F28830B01009472C1 /* AuthViewController.storyboard */,
+			);
+			path = AuthViewController;
+			sourceTree = "<group>";
+		};
 		52DE67FA2877907400DBCA3B = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +119,12 @@
 			children = (
 				52DE68062877907400DBCA3B /* AppDelegate.swift */,
 				52DE68082877907400DBCA3B /* SceneDelegate.swift */,
-				52DE680A2877907400DBCA3B /* AuthViewController.swift */,
 				52DE680F2877907600DBCA3B /* Assets.xcassets */,
 				52DE68112877907600DBCA3B /* LaunchScreen.storyboard */,
 				52DE68142877907600DBCA3B /* Info.plist */,
 				525B5D2E28830205009472C1 /* Services */,
-				525B5D2F28830B01009472C1 /* AuthViewController.storyboard */,
+				525B5D36288317DD009472C1 /* AuthViewController */,
+				525B5D35288317C6009472C1 /* FeedViewController */,
 			);
 			path = VkNewsFeed;
 			sourceTree = "<group>";
@@ -170,6 +192,7 @@
 				52DE68132877907600DBCA3B /* LaunchScreen.storyboard in Resources */,
 				525B5D3028830B01009472C1 /* AuthViewController.storyboard in Resources */,
 				52DE68102877907600DBCA3B /* Assets.xcassets in Resources */,
+				525B5D3428831737009472C1 /* FeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +225,7 @@
 			files = (
 				52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */,
 				52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */,
+				525B5D3228831726009472C1 /* FeedViewController.swift in Sources */,
 				52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */,
 				525B5D2D288301EE009472C1 /* AuthService.swift in Sources */,
 			);

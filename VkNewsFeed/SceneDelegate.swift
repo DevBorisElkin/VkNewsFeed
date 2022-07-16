@@ -8,10 +8,16 @@
 import UIKit
 import VKSdkFramework
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
+    
     var window: UIWindow?
     var authService: AuthService!
+    
+    static func shared() -> SceneDelegate{
+        let scene = UIApplication.shared.connectedScenes.first
+        let sd: SceneDelegate = (scene?.delegate as? SceneDelegate)!
+        return sd
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -22,7 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Updates for VK SDK
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
         authService = AuthService()
+        authService.delegate = self
+        
         let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as? AuthViewController
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()
@@ -61,6 +70,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = URLContexts.first?.url{
             VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
         }
+    }
+    
+    // MARK: - VK delegates
+    
+    func authSerciceShouldShow(viewController: UIViewController) {
+        print(#function)
+        window?.rootViewController?.present(viewController, animated: true)
+    }
+    
+    func authSerciceSignIn() {
+        print(#function)
+        let feedVC = UIStoryboard(name: "FeedViewController", bundle: nil).instantiateInitialViewController() as? FeedViewController
+        let navigationVC = UINavigationController(rootViewController: feedVC!)
+        window?.rootViewController = navigationVC
+    }
+    
+    func authSerciceSignInDidFailed() {
+        print(#function)
     }
 }
 
