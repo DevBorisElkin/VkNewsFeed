@@ -7,20 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525B5D2A2882FE2A009472C1 /* VKSdkFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */; };
+		525B5D2B2882FE2A009472C1 /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		525B5D2D288301EE009472C1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D2C288301EE009472C1 /* AuthService.swift */; };
+		525B5D3028830B01009472C1 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525B5D2F28830B01009472C1 /* AuthViewController.storyboard */; };
 		52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE68062877907400DBCA3B /* AppDelegate.swift */; };
 		52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE68082877907400DBCA3B /* SceneDelegate.swift */; };
-		52DE680B2877907400DBCA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE680A2877907400DBCA3B /* ViewController.swift */; };
-		52DE680E2877907400DBCA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DE680C2877907400DBCA3B /* Main.storyboard */; };
+		52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE680A2877907400DBCA3B /* AuthViewController.swift */; };
 		52DE68102877907600DBCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DE680F2877907600DBCA3B /* Assets.xcassets */; };
 		52DE68132877907600DBCA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DE68112877907600DBCA3B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		525B5D292882FDC5009472C1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				525B5D2B2882FE2A009472C1 /* VKSdkFramework.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VKSdkFramework.xcframework; path = Carthage/Build/VKSdkFramework.xcframework; sourceTree = "<group>"; };
+		525B5D262882FDC5009472C1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
+		525B5D2C288301EE009472C1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		525B5D2F28830B01009472C1 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		52DE68032877907400DBCA3B /* VkNewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DE68062877907400DBCA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DE68082877907400DBCA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52DE680A2877907400DBCA3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		52DE680D2877907400DBCA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52DE680A2877907400DBCA3B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		52DE680F2877907600DBCA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52DE68122877907600DBCA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52DE68142877907600DBCA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,17 +51,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525B5D2A2882FE2A009472C1 /* VKSdkFramework.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		525B5D212882FD15009472C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				525B5D262882FDC5009472C1 /* VKSdkFramework.framework */,
+				525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		525B5D2E28830205009472C1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				525B5D2C288301EE009472C1 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		52DE67FA2877907400DBCA3B = {
 			isa = PBXGroup;
 			children = (
 				52DE68052877907400DBCA3B /* VkNewsFeed */,
 				52DE68042877907400DBCA3B /* Products */,
+				525B5D212882FD15009472C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,11 +97,12 @@
 			children = (
 				52DE68062877907400DBCA3B /* AppDelegate.swift */,
 				52DE68082877907400DBCA3B /* SceneDelegate.swift */,
-				52DE680A2877907400DBCA3B /* ViewController.swift */,
-				52DE680C2877907400DBCA3B /* Main.storyboard */,
+				52DE680A2877907400DBCA3B /* AuthViewController.swift */,
 				52DE680F2877907600DBCA3B /* Assets.xcassets */,
 				52DE68112877907600DBCA3B /* LaunchScreen.storyboard */,
 				52DE68142877907600DBCA3B /* Info.plist */,
+				525B5D2E28830205009472C1 /* Services */,
+				525B5D2F28830B01009472C1 /* AuthViewController.storyboard */,
 			);
 			path = VkNewsFeed;
 			sourceTree = "<group>";
@@ -77,6 +117,8 @@
 				52DE67FF2877907400DBCA3B /* Sources */,
 				52DE68002877907400DBCA3B /* Frameworks */,
 				52DE68012877907400DBCA3B /* Resources */,
+				525B5D202882FAD3009472C1 /* ShellScript */,
+				525B5D292882FDC5009472C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,35 +168,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				52DE68132877907600DBCA3B /* LaunchScreen.storyboard in Resources */,
+				525B5D3028830B01009472C1 /* AuthViewController.storyboard in Resources */,
 				52DE68102877907600DBCA3B /* Assets.xcassets in Resources */,
-				52DE680E2877907400DBCA3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		525B5D202882FAD3009472C1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings 2>/dev/null\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52DE67FF2877907400DBCA3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52DE680B2877907400DBCA3B /* ViewController.swift in Sources */,
+				52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */,
 				52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */,
 				52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */,
+				525B5D2D288301EE009472C1 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		52DE680C2877907400DBCA3B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52DE680D2877907400DBCA3B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		52DE68112877907600DBCA3B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,11 +342,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VkNewsFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,11 +372,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VkNewsFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
