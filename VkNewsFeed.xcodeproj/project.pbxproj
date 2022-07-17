@@ -14,6 +14,7 @@
 		525B5D3228831726009472C1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D3128831726009472C1 /* FeedViewController.swift */; };
 		525B5D3428831737009472C1 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525B5D3328831737009472C1 /* FeedViewController.storyboard */; };
 		525B5D382884AE46009472C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D372884AE46009472C1 /* NetworkService.swift */; };
+		525B5D3A2884AF1E009472C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D392884AF1E009472C1 /* API.swift */; };
 		52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE68062877907400DBCA3B /* AppDelegate.swift */; };
 		52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE68082877907400DBCA3B /* SceneDelegate.swift */; };
 		52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE680A2877907400DBCA3B /* AuthViewController.swift */; };
@@ -43,6 +44,7 @@
 		525B5D3128831726009472C1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		525B5D3328831737009472C1 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		525B5D372884AE46009472C1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		525B5D392884AF1E009472C1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		52DE68032877907400DBCA3B /* VkNewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DE68062877907400DBCA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DE68082877907400DBCA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				525B5D2C288301EE009472C1 /* AuthService.swift */,
 				525B5D372884AE46009472C1 /* NetworkService.swift */,
+				525B5D392884AF1E009472C1 /* API.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */,
 				525B5D382884AE46009472C1 /* NetworkService.swift in Sources */,
 				525B5D2D288301EE009472C1 /* AuthService.swift in Sources */,
+				525B5D3A2884AF1E009472C1 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
