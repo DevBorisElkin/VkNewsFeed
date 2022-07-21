@@ -58,7 +58,7 @@ class AuthService : NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     // https://stackoverflow.com/questions/56833726/authorization-vk-api-error-uerrorinvalid-request-error-descriptionse ???
     func wakeUpSession(){
-        let scopes = ["offline"]
+        let scopes = ["offline, wall, friends"] // let scopes = ["offline, groups, friends"]
         VKSdk.wakeUpSession(scopes) { [delegate] (state, error) in
             switch state{
             

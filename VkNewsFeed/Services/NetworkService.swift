@@ -41,7 +41,6 @@ final class NetworkService: Networking{
                 completion(data, error)
             }
         }
-        
     }
     
     private func url(from path: String, params: [String:String]) -> URL {

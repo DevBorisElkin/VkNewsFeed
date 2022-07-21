@@ -10,13 +10,27 @@ import UIKit
 
 class FeedViewController: UIViewController{
     
-    private let networkService = NetworkService()
+    private let networkService: Networking = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .blue
         
-        networkService.getFeed()
+        let params = ["filters" : "post, photo"]
+        networkService.request(path: API.newsfeed, params: params) { data, error in
+            if let error = error {
+                print("Error received requesting data: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("Something is wrong with data")
+                return
+            }
+            
+            var json = try? JSONSerialization.jsonObject(with: data, options: [])
+            print("json: \(json!)")
+        }
     }
 }
