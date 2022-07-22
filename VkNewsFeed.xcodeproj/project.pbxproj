@@ -20,6 +20,8 @@
 		52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE680A2877907400DBCA3B /* AuthViewController.swift */; };
 		52DE68102877907600DBCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DE680F2877907600DBCA3B /* Assets.xcassets */; };
 		52DE68132877907600DBCA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DE68112877907600DBCA3B /* LaunchScreen.storyboard */; };
+		52F849CE288AF2A40061D223 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F849CD288AF2A40061D223 /* FeedResponse.swift */; };
+		52F849D0288AF5870061D223 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F849CF288AF5870061D223 /* NetworkDataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +54,8 @@
 		52DE680F2877907600DBCA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52DE68122877907600DBCA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52DE68142877907600DBCA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52F849CD288AF2A40061D223 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		52F849CF288AF5870061D223 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +82,11 @@
 		525B5D2E28830205009472C1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				52F849CC288AF2830061D223 /* Models */,
 				525B5D2C288301EE009472C1 /* AuthService.swift */,
 				525B5D372884AE46009472C1 /* NetworkService.swift */,
 				525B5D392884AF1E009472C1 /* API.swift */,
+				52F849CF288AF5870061D223 /* NetworkDataFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -133,6 +139,14 @@
 				525B5D35288317C6009472C1 /* FeedViewController */,
 			);
 			path = VkNewsFeed;
+			sourceTree = "<group>";
+		};
+		52F849CC288AF2830061D223 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52F849CD288AF2A40061D223 /* FeedResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,11 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F849CE288AF2A40061D223 /* FeedResponse.swift in Sources */,
 				52DE680B2877907400DBCA3B /* AuthViewController.swift in Sources */,
 				52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */,
 				525B5D3228831726009472C1 /* FeedViewController.swift in Sources */,
 				52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */,
 				525B5D382884AE46009472C1 /* NetworkService.swift in Sources */,
+				52F849D0288AF5870061D223 /* NetworkDataFetcher.swift in Sources */,
 				525B5D2D288301EE009472C1 /* AuthService.swift in Sources */,
 				525B5D3A2884AF1E009472C1 /* API.swift in Sources */,
 			);
