@@ -12,12 +12,6 @@ class NewsfeedCell: UITableViewCell {
     
     static let reuseId = "NewsfeedCell"
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -27,5 +21,7 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var sharesLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
     
-    
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }
