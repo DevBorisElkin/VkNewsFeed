@@ -9,18 +9,27 @@
 import UIKit
 
 protocol NewsfeedBusinessLogic {
-  func makeRequest(request: Newsfeed.Model.Request.RequestType)
+    func makeRequest(request: Newsfeed.Model.Request.RequestType)
 }
 
 class NewsfeedInteractor: NewsfeedBusinessLogic {
-
-  var presenter: NewsfeedPresentationLogic?
-  var service: NewsfeedService?
-  
-  func makeRequest(request: Newsfeed.Model.Request.RequestType) {
-    if service == nil {
-      service = NewsfeedService()
+    
+    var presenter: NewsfeedPresentationLogic?
+    var service: NewsfeedService?
+    
+    func makeRequest(request: Newsfeed.Model.Request.RequestType) {
+        if service == nil {
+            service = NewsfeedService()
+        }
+        
+        switch request {
+        case .some:
+            print("Interactor: .some")
+        case .getFeed:
+            print("Interactor: .getFeed")
+            presenter?.presentData(response: .presentNewsfeed)
+        }
+        
     }
-  }
-  
+    
 }
