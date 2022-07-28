@@ -84,8 +84,8 @@
 			children = (
 				52F849CC288AF2830061D223 /* Models */,
 				525B5D2C288301EE009472C1 /* AuthService.swift */,
-				525B5D372884AE46009472C1 /* NetworkService.swift */,
 				525B5D392884AF1E009472C1 /* API.swift */,
+				525B5D372884AE46009472C1 /* NetworkService.swift */,
 				52F849CF288AF5870061D223 /* NetworkDataFetcher.swift */,
 			);
 			path = Services;

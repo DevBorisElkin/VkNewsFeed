@@ -18,10 +18,11 @@ class FeedViewController: UIViewController{
         view.backgroundColor = .blue
         
         fetcher.getFeed { feedResponse in
-            guard let feedResponse = feedResponse else { return }
+            guard let feedResponse = feedResponse else { print("Unknown error getting feed"); return }
             
+            print("Got feed successfully")
             feedResponse.items.map { feedItem in
-                print(feedItem.date)
+                print(feedItem.text)
             }
         }
     }
