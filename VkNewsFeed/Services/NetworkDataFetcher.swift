@@ -33,6 +33,14 @@ struct NetworkDataFetcher: DataFetcher{
     }
     
     private func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
+        
+        // If you need to see JSON file
+//        if let data = from, var json = try? JSONSerialization.jsonObject(with: data, options: []){
+//            print("-----JSON Retrieved-----\n\(json)\n-----JSON Ended-----")
+//        }else{
+//            print("Couldn't get JSON")
+//        }
+        
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let data = from, let response = try? decoder.decode(type.self, from: data) else { return nil }

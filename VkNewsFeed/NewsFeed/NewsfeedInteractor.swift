@@ -28,6 +28,7 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
         case .getNewsFeed:
             print("Interactor: .getNewsFeed")
             fether.getFeed { [weak self] feedResponse in
+                
                 guard let feedResponse = feedResponse else { print("Unknwown error"); return }
                 
                 self?.presenter?.presentData(response: .presentNewsfeed(feed: feedResponse))
