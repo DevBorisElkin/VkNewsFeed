@@ -16,6 +16,7 @@
 		5200D1012893006F00B7AD4D /* NewsfeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5200D1002893006F00B7AD4D /* NewsfeedViewController.storyboard */; };
 		5200D10428930CCE00B7AD4D /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5200D10328930CCD00B7AD4D /* NewsfeedCell.swift */; };
 		5200D10628930D1300B7AD4D /* NewsfeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5200D10528930D1300B7AD4D /* NewsfeedCell.xib */; };
+		5200D10B28943A8500B7AD4D /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5200D10A28943A8500B7AD4D /* WebImageView.swift */; };
 		525B5D2A2882FE2A009472C1 /* VKSdkFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */; };
 		525B5D2B2882FE2A009472C1 /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		525B5D2D288301EE009472C1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B5D2C288301EE009472C1 /* AuthService.swift */; };
@@ -55,6 +56,7 @@
 		5200D1002893006F00B7AD4D /* NewsfeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsfeedViewController.storyboard; sourceTree = "<group>"; };
 		5200D10328930CCD00B7AD4D /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 		5200D10528930D1300B7AD4D /* NewsfeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedCell.xib; sourceTree = "<group>"; };
+		5200D10A28943A8500B7AD4D /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		525B5D222882FD15009472C1 /* VKSdkFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VKSdkFramework.xcframework; path = Carthage/Build/VKSdkFramework.xcframework; sourceTree = "<group>"; };
 		525B5D262882FDC5009472C1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		525B5D2C288301EE009472C1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 				5200D10528930D1300B7AD4D /* NewsfeedCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		5200D10928943A5D00B7AD4D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5200D10A28943A8500B7AD4D /* WebImageView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		525B5D212882FD15009472C1 /* Frameworks */ = {
@@ -166,6 +176,7 @@
 				525B5D2E28830205009472C1 /* Services */,
 				525B5D36288317DD009472C1 /* AuthViewController */,
 				5200D0F12892F9EB00B7AD4D /* NewsFeed */,
+				5200D10928943A5D00B7AD4D /* Helpers */,
 			);
 			path = VkNewsFeed;
 			sourceTree = "<group>";
@@ -282,6 +293,7 @@
 				52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */,
 				525B5D382884AE46009472C1 /* NetworkService.swift in Sources */,
 				5200D0FC2892FA8600B7AD4D /* NewsfeedModels.swift in Sources */,
+				5200D10B28943A8500B7AD4D /* WebImageView.swift in Sources */,
 				52F849D0288AF5870061D223 /* NetworkDataFetcher.swift in Sources */,
 				5200D0FA2892FA8600B7AD4D /* NewsfeedWorker.swift in Sources */,
 				525B5D2D288301EE009472C1 /* AuthService.swift in Sources */,
