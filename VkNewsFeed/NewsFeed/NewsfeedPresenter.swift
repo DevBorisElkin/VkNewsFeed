@@ -13,7 +13,10 @@ protocol NewsfeedPresentationLogic {
 }
 
 class NewsfeedPresenter: NewsfeedPresentationLogic {
+    
     weak var viewController: NewsfeedDisplayLogic?
+    
+    var cellLayoutCalculator: FeedCellLayoutCalculatorProtocol = NewsfeedCellLayoutCalculator()
     
     let dateFormatter: DateFormatter = {
         let dt = DateFormatter()
@@ -46,15 +49,20 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitle = dateFormatter.string(from: date)
         
-        return FeedViewModel.Cell.init(iconUrlString: profile.photo,
-                                       name: profile.name,
-                                       date: dateTitle,
-                                       text: feedItem.text,
-                                       likes: String(feedItem.likes?.count ?? 0),
-                                       comments: String(feedItem.comments?.count ?? 0),
-                                       shares: String(feedItem.reposts?.count ?? 0),
-                                       views: String(feedItem.views?.count ?? 0),
-                                       photoAttachement: photoAttachement)
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachement: photoAttachement)
+        
+        return FeedViewModel.Cell.init(
+            iconUrlString: profile.photo,
+            name: profile.name,
+            date: dateTitle,
+            text: feedItem.text,
+            likes: String(feedItem.likes?.count ?? 0),
+            comments: String(feedItem.comments?.count ?? 0),
+            shares: String(feedItem.reposts?.count ?? 0),
+            views: String(feedItem.views?.count ?? 0),
+            photoAttachement: photoAttachement,
+            sizes: sizes
+        )
     }
     
     private func profile(for sourceId: Int, profiles: [Profile], groups: [Group]) -> ProfileRepresentable{
@@ -75,6 +83,10 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
             //print("Error 227")
             return nil
         }
-        return FeedViewModel.FeedCellPhotoAttachement.init(photoUrlString: firstPhoto.srcBIG, width: firstPhoto.width, height: firstPhoto.height)
+        return FeedViewModel.FeedCellPhotoAttachement.init(
+            photoUrlString: firstPhoto.srcBIG,
+            width: firstPhoto.width,
+            height:firstPhoto.height
+        )
     }
 }
