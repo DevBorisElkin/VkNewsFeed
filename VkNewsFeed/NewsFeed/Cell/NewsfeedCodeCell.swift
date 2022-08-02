@@ -15,8 +15,12 @@ final class NewsfeedCodeCell : UITableViewCell {
     // first layer
     let cardView: UIView = {
         let view = UIView()
-        //view.backgroundColor = .purple
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        
         print("UIView - Created once")
         return view
     }()
@@ -58,6 +62,7 @@ final class NewsfeedCodeCell : UITableViewCell {
     let iconImageView: WebImageView = {
         let imageView = WebImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         //imageView.backgroundColor = .cyan
         return imageView
     }()
@@ -182,6 +187,8 @@ final class NewsfeedCodeCell : UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 1, alpha: 1)
+        
         overlayFirstLayer() // first layer
         overlaySecondLayer() // second layer
         overlayThirdLayerOnTopView() // third layer for top layer
@@ -229,6 +236,10 @@ final class NewsfeedCodeCell : UITableViewCell {
         iconImageView.topAnchor.constraint(equalTo: topView.topAnchor).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         iconImageView.widthAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
+        
+        // doesn't work for some reason
+        iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
+        iconImageView.clipsToBounds = true
         
         // name label constraints
         nameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8).isActive = true
@@ -288,7 +299,7 @@ final class NewsfeedCodeCell : UITableViewCell {
         // label view constraints
         label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 4).isActive = true
-        label.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10).isActive = true
     }
     
     func set(viewModel: FeedCellViewModel){

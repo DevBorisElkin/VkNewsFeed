@@ -51,6 +51,9 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         
         let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachement: photoAttachement)
         
+        //let viewsModifiedString = String(feedItem.views?.count ?? 0)
+        let viewsModifiedString = feedItem.views?.count.roundedWithAbbreviations ?? "0"
+        
         return FeedViewModel.Cell.init(
             iconUrlString: profile.photo,
             name: profile.name,
@@ -59,7 +62,7 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
             likes: String(feedItem.likes?.count ?? 0),
             comments: String(feedItem.comments?.count ?? 0),
             shares: String(feedItem.reposts?.count ?? 0),
-            views: String(feedItem.views?.count ?? 0),
+            views: viewsModifiedString,
             photoAttachement: photoAttachement,
             sizes: sizes
         )
