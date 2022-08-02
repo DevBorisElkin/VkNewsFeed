@@ -17,4 +17,6 @@ struct Constants {
     
     static let bottomViewViewHeight: CGFloat = 44
     static let bottomViewViewWidth: CGFloat = 80
+    
+    static let bottomViewViewsIconSize: CGFloat = 24
 }
