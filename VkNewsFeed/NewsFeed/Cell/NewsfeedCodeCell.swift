@@ -12,45 +12,98 @@ final class NewsfeedCodeCell : UITableViewCell {
     
     static let reuseId = "NewsfeedCodeCell"
     
+    // first layer
     let cardView: UIView = {
         let view = UIView()
         view.backgroundColor = .purple
         view.translatesAutoresizingMaskIntoConstraints = false
+        print("UIView - Created once")
+        return view
+    }()
+    
+    // second layer
+    let topView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
+    }()
+    
+    let postLabel: UILabel = {
+        let label = UILabel()
+        //label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = Constants.postLabelFont
+        label.backgroundColor = .darkGray
+        label.textColor = .black
+        return label
+    }()
+    
+    let postImageView: WebImageView = {
+        let view = WebImageView()
+        //view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    let bottomView: UIView = {
+        let view = UIView()
+        //view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .orange
         return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        overlayFirstLayer() // first layer
+        overlaySecondLayer() // second layer
+    }
+    
+    func overlayFirstLayer(){
         addSubview(cardView)
         
-        backgroundColor = .red
+        // card view constraints
+        cardView.fillSuperview(padding: Constants.cardInsets)
+    }
+    
+    func overlaySecondLayer(){
+        cardView.addSubview(topView)
+        cardView.addSubview(postLabel)
+        cardView.addSubview(postImageView)
+        cardView.addSubview(bottomView)
         
-        // cardView constraints
-        //cardView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        cardView.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true // to add offset to anhor 12
-//        cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
-//        cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-//        cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
+        //topView.constraints
+        topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
+        topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8).isActive = true
+        topView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 8).isActive = true
+        topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         
-        //cardView.fillSuperview()
+        //postLabel.constraints
+        topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
+        topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8).isActive = true
+        topView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 8).isActive = true
+        topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         
-        cardView.fillSuperview(padding: UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
+        //postImageView.constraints
         
-//        cardView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-//        cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        cardView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        //bottomView.constraints
+    }
+    
+    func set(viewModel: FeedCellViewModel){
+        //postLabel.text = viewModel.text
         
-//        cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-//        cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-//        cardView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        cardView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        // TODO fix sizes for elements
+        postLabel.frame = viewModel.sizes.postLabelFrame
+        postImageView.frame = viewModel.sizes.attachementFrame
+        bottomView.frame = viewModel.sizes.bottomViewFrame
         
-//        cardView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        cardView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-//        cardView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        cardView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        if let photoAttachement = viewModel.photoAttachement{
+            //postImageView.set(imageURL: photoAttachement.photoUrlString)
+            postImageView.isHidden = false
+        }else{
+            postImageView.isHidden = true
+        }
     }
     
     required init?(coder: NSCoder) {
