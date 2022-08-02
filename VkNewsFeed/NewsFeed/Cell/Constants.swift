@@ -14,4 +14,7 @@ struct Constants {
     static let postLabelInsets = UIEdgeInsets(top: 5 + Constants.topViewHeight + 5, left: 8, bottom: 8, right: 8)
     static let postLabelFont = UIFont.systemFont(ofSize: 15)
     static let bottomViewHeight: CGFloat = 45
+    
+    static let bottomViewViewHeight: CGFloat = 44
+    static let bottomViewViewWidth: CGFloat = 80
 }

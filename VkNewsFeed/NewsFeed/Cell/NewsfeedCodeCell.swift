@@ -53,11 +53,101 @@ final class NewsfeedCodeCell : UITableViewCell {
         return view
     }()
     
+    // third layer for TopView
+    
+    let iconImageView: WebImageView = {
+        let imageView = WebImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .cyan
+        return imageView
+    }()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.numberOfLines = 0
+        label.textColor = .blue
+        label.backgroundColor = .green
+        return label
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.backgroundColor = .red
+        return label
+    }()
+    
+    // third layer for bottom view
+    
+    let likesView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
+    }()
+    
+    let commentsView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .orange
+        return view
+    }()
+    
+    let sharesView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .green
+        return view
+    }()
+    
+    let viewsView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    // fourth layer for bottom view individual elements
+    
+    let likesImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "like")
+        return imageView
+    }()
+    
+    let commentsImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "comment")
+        return imageView
+    }()
+    
+    let sharesImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "share")
+        return imageView
+    }()
+    
+    let viewsImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "eye")
+        return imageView
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         overlayFirstLayer() // first layer
         overlaySecondLayer() // second layer
+        overlayThirdLayerOnTopView() // third layer for top layer
+        overlayThirdLayerOnBottomView() // third layer for bottom view
     }
     
     func overlayFirstLayer(){
@@ -90,16 +180,59 @@ final class NewsfeedCodeCell : UITableViewCell {
         //bottomView.constraints
     }
     
-    func set(viewModel: FeedCellViewModel){
-        //postLabel.text = viewModel.text
+    func overlayThirdLayerOnTopView(){
+        topView.addSubview(iconImageView)
+        topView.addSubview(nameLabel)
+        topView.addSubview(dateLabel)
         
-        // TODO fix sizes for elements
+        // icon image view constraints
+        iconImageView.leadingAnchor.constraint(equalTo: topView.leadingAnchor).isActive = true
+        iconImageView.topAnchor.constraint(equalTo: topView.topAnchor).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
+        
+        // name label constraints
+        nameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -8).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: topView.topAnchor, constant: 2).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: Constants.topViewHeight / 2 - 2).isActive = true
+        
+        // date label constraints
+        dateLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -8).isActive = true
+        dateLabel.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -2).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
+    }
+    
+    func overlayThirdLayerOnBottomView(){
+        bottomView.addSubview(likesView)
+        bottomView.addSubview(commentsView)
+        bottomView.addSubview(sharesView)
+        bottomView.addSubview(viewsView)
+        
+        // likes view constraints
+        likesView.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewWidth))
+        
+        commentsView.anchor(top: bottomView.topAnchor, leading: likesView.trailingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewWidth))
+        
+        sharesView.anchor(top: bottomView.topAnchor, leading: commentsView.trailingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewWidth))
+        
+        viewsView.anchor(top: bottomView.topAnchor, leading: nil, bottom: nil, trailing: bottomView.trailingAnchor, size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewWidth))
+    }
+    
+    func set(viewModel: FeedCellViewModel){
+        
+        iconImageView.set(imageURL: viewModel.iconUrlString)
+        nameLabel.text = viewModel.name
+        dateLabel.text = viewModel.date
+        postLabel.text = viewModel.text
+        
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachementFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
         
         if let photoAttachement = viewModel.photoAttachement{
-            //postImageView.set(imageURL: photoAttachement.photoUrlString)
+            postImageView.set(imageURL: photoAttachement.photoUrlString)
             postImageView.isHidden = false
         }else{
             postImageView.isHidden = true
