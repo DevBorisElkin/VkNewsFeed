@@ -27,7 +27,6 @@ final class NewsfeedCodeCell : UITableViewCell {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         
-        print("UIView - Created once")
         return view
     }()
     
@@ -224,6 +223,7 @@ final class NewsfeedCodeCell : UITableViewCell {
     }
     
     @objc func moreTextButtonTouch(){
+        print("Pressed expand text button")
         delegate?.revealPost(for: self)
     }
     
@@ -237,7 +237,7 @@ final class NewsfeedCodeCell : UITableViewCell {
     func overlaySecondLayer(){
         cardView.addSubview(topView)
         cardView.addSubview(postLabel)
-        cardView.addSubview(moreTextButton)
+        contentView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
         
@@ -333,7 +333,6 @@ final class NewsfeedCodeCell : UITableViewCell {
     }
     
     func set(viewModel: FeedCellViewModel){
-        
         iconImageView.set(imageURL: viewModel.iconUrlString)
         nameLabel.text = viewModel.name
         dateLabel.text = viewModel.date
