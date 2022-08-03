@@ -58,6 +58,8 @@ final class NewsfeedCodeCell : UITableViewCell {
         return button
     }()
     
+    let galleryCollectionView = GalleryCollectionView()
+    
     let postImageView: WebImageView = {
         let view = WebImageView()
         //view.translatesAutoresizingMaskIntoConstraints = false
@@ -240,6 +242,7 @@ final class NewsfeedCodeCell : UITableViewCell {
         contentView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
+        cardView.addSubview(galleryCollectionView)
         
         //topView.constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
@@ -254,10 +257,9 @@ final class NewsfeedCodeCell : UITableViewCell {
         topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         
         //postImageView.constraints
-        
         //bottomView.constraints
-        
         // moreTextButton.constraints
+        // galleryCollectionView constraints
     }
     
     func overlayThirdLayerOnTopView(){
@@ -343,15 +345,24 @@ final class NewsfeedCodeCell : UITableViewCell {
         viewsLabel.text = viewModel.views
         
         postLabel.frame = viewModel.sizes.postLabelFrame
-        postImageView.frame = viewModel.sizes.attachementFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
         moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
-        if let photoAttachement = viewModel.photoAttachement{
+        if let photoAttachement = viewModel.photoAttachements.first, viewModel.photoAttachements.count == 1 {
             postImageView.set(imageURL: photoAttachement.photoUrlString)
             postImageView.isHidden = false
-        }else{
+            galleryCollectionView.isHidden = true
+            
+            postImageView.frame = viewModel.sizes.attachementFrame
+        }else if viewModel.photoAttachements.count > 1 {
+            galleryCollectionView.frame = viewModel.sizes.attachementFrame
             postImageView.isHidden = true
+            galleryCollectionView.isHidden = false
+            galleryCollectionView.set(photos: viewModel.photoAttachements)
+        }
+        else{
+            postImageView.isHidden = true
+            galleryCollectionView.isHidden = true
         }
     }
     

@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 protocol FeedCellLayoutCalculatorProtocol {
-    func sizes(postText: String?, photoAttachement: FeedCellPhotoAttachmentViewModel?, isFullSizedPost: Bool) -> FeedCellSizes
+    func sizes(postText: String?, photoAttachements: [FeedCellPhotoAttachmentViewModel], isFullSizedPost: Bool) -> FeedCellSizes
 }
 
 struct Sizes: FeedCellSizes {
@@ -28,7 +28,7 @@ final class NewsfeedCellLayoutCalculator : FeedCellLayoutCalculatorProtocol {
         self.screenWidth = screenWidth
     }
     
-    func sizes(postText: String?, photoAttachement: FeedCellPhotoAttachmentViewModel?, isFullSizedPost: Bool) -> FeedCellSizes {
+    func sizes(postText: String?, photoAttachements: [FeedCellPhotoAttachmentViewModel], isFullSizedPost: Bool) -> FeedCellSizes {
         
         var showMoreTextButton = false
         
@@ -71,11 +71,23 @@ final class NewsfeedCellLayoutCalculator : FeedCellLayoutCalculatorProtocol {
         
         var attachementFrame = CGRect(origin: CGPoint(x: 0, y: attachementTop), size: .zero)
         
-        if let attachement = photoAttachement {
+//        if let attachement = photoAttachement {
+//            let photoHeight: Float = Float(attachement.height)
+//            let photoWidth: Float = Float(attachement.width)
+//            let ratio = CGFloat(photoHeight / photoWidth)
+//            attachementFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio )
+//        }
+        
+        if let attachement = photoAttachements.first {
             let photoHeight: Float = Float(attachement.height)
             let photoWidth: Float = Float(attachement.width)
             let ratio = CGFloat(photoHeight / photoWidth)
-            attachementFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio )
+            if photoAttachements.count == 1 {
+                attachementFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio )
+            } else if photoAttachements.count > 1 {
+                
+                attachementFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio )
+            }
         }
         
         // MARK: Working on attachementFrame
