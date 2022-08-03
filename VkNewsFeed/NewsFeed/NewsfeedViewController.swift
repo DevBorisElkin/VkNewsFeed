@@ -71,6 +71,12 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     
 }
 
+extension NewsfeedViewController: NewsfeedCodeCellDelegate {
+    func revealPost(for cell: NewsfeedCodeCell) {
+        
+    }
+}
+
 extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,6 +89,7 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        cell.delegate = self
 
         return cell
     }

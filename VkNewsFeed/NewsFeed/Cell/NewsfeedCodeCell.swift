@@ -8,9 +8,15 @@
 import UIKit
 import Foundation
 
+protocol NewsfeedCodeCellDelegate: AnyObject {
+    func revealPost(for cell: NewsfeedCodeCell)
+}
+
 final class NewsfeedCodeCell : UITableViewCell {
     
     static let reuseId = "NewsfeedCodeCell"
+    
+    weak var delegate: NewsfeedCodeCellDelegate?
     
     // first layer
     let cardView: UIView = {
@@ -41,6 +47,16 @@ final class NewsfeedCodeCell : UITableViewCell {
         //label.backgroundColor = .darkGray
         label.textColor = .black
         return label
+    }()
+    
+    let moreTextButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.contentVerticalAlignment = .center
+        button.setTitle("Show full text", for: .normal)
+        return button
     }()
     
     let postImageView: WebImageView = {
@@ -184,16 +200,31 @@ final class NewsfeedCodeCell : UITableViewCell {
         return label
     }()
     
+    override func prepareForReuse() {
+        iconImageView.set(imageURL: nil)
+        postImageView.set(imageURL: nil)
+        //super.prepareForReuse()
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 1, alpha: 1)
+        
+        iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
+        iconImageView.clipsToBounds = true
         
         overlayFirstLayer() // first layer
         overlaySecondLayer() // second layer
         overlayThirdLayerOnTopView() // third layer for top layer
         overlayThirdLayerOnBottomView() // third layer for bottom view
         overlayForthLayerOnBottomView() // forth layer on bottom individual views
+        
+        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+    }
+    
+    @objc func moreTextButtonTouch(){
+        delegate?.revealPost(for: self)
     }
     
     func overlayFirstLayer(){
@@ -206,6 +237,7 @@ final class NewsfeedCodeCell : UITableViewCell {
     func overlaySecondLayer(){
         cardView.addSubview(topView)
         cardView.addSubview(postLabel)
+        cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
         
@@ -224,6 +256,8 @@ final class NewsfeedCodeCell : UITableViewCell {
         //postImageView.constraints
         
         //bottomView.constraints
+        
+        // moreTextButton.constraints
     }
     
     func overlayThirdLayerOnTopView(){
@@ -236,10 +270,6 @@ final class NewsfeedCodeCell : UITableViewCell {
         iconImageView.topAnchor.constraint(equalTo: topView.topAnchor).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         iconImageView.widthAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
-        
-        // doesn't work for some reason
-        iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
-        iconImageView.clipsToBounds = true
         
         // name label constraints
         nameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8).isActive = true
@@ -316,6 +346,7 @@ final class NewsfeedCodeCell : UITableViewCell {
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachementFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
+        moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
         if let photoAttachement = viewModel.photoAttachement{
             postImageView.set(imageURL: photoAttachement.photoUrlString)
