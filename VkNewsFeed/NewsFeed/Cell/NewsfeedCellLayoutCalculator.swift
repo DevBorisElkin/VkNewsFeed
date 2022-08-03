@@ -94,6 +94,7 @@ final class NewsfeedCellLayoutCalculator : FeedCellLayoutCalculatorProtocol {
                 }
                 
                 let rowHeight = RowLayout.rowHeightCounter(superviewWidth: cardViewWidth, photosArray: photos)
+                attachementFrame.origin = CGPoint(x: Constants.cardViewXOffset, y: attachementTop)
                 attachementFrame.size = CGSize(width: cardViewWidth, height: rowHeight!)
             }
         }

@@ -242,7 +242,8 @@ final class NewsfeedCodeCell : UITableViewCell {
         contentView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
-        cardView.addSubview(galleryCollectionView)
+        //cardView.addSubview(galleryCollectionView)
+        contentView.addSubview(galleryCollectionView)
         
         //topView.constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true

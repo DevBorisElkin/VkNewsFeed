@@ -25,4 +25,6 @@ struct Constants {
     
     static let moreTextButtonSize: CGSize = CGSize(width: 170, height: 30)
     static let moreTextButtonInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    
+    static let cardViewXOffset: CGFloat = 8
 }
