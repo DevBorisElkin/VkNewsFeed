@@ -13,8 +13,8 @@ class GalleryCollectionView: UICollectionView {
     var photos = [FeedCellPhotoAttachmentViewModel]()
     
     init() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        let layout = RowLayout()
+        //layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
         
         delegate = self
@@ -47,6 +47,10 @@ extension GalleryCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         
         return cell
     }
-    
-    
+}
+
+extension GalleryCollectionView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.width, height: frame.height)
+    }
 }
