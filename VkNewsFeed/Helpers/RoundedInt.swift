@@ -22,4 +22,17 @@ extension Int {
             return "\(self)"
         }
     }
+    
+    var roundedWithAbbreviationsKM: String{
+        var stringResult = String(self)
+        
+        guard self > 0 else { return stringResult }
+        
+        if 4...6 ~= stringResult.count {
+            stringResult = stringResult.dropLast(3) + "K"
+        }else if stringResult.count > 6 {
+            stringResult = stringResult.dropLast(6) + "M"
+        }
+        return stringResult
+    }
 }

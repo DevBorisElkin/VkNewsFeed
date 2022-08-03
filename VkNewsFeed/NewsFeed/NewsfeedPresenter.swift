@@ -59,19 +59,18 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         
         let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachements: photoAttachements, isFullSizedPost: isFullSized)
         
-        //let viewsModifiedString = String(feedItem.views?.count ?? 0)
-        let viewsModifiedString = feedItem.views?.count.roundedWithAbbreviations ?? "0"
+        let postText = feedItem.text?.replacingOccurrences(of: "<br>", with: "\n")
         
         return FeedViewModel.Cell.init(
             postId: feedItem.postId,
             iconUrlString: profile.photo,
             name: profile.name,
             date: dateTitle,
-            text: feedItem.text,
-            likes: String(feedItem.likes?.count ?? 0),
-            comments: String(feedItem.comments?.count ?? 0),
-            shares: String(feedItem.reposts?.count ?? 0),
-            views: viewsModifiedString,
+            text: postText,
+            likes: feedItem.likes?.count.roundedWithAbbreviationsKM ?? "0",
+            comments: feedItem.comments?.count.roundedWithAbbreviationsKM ?? "0",
+            shares: feedItem.reposts?.count.roundedWithAbbreviationsKM ?? "0",
+            views: feedItem.views?.count.roundedWithAbbreviationsKM ?? "0",
             photoAttachements: photoAttachements,
             sizes: sizes
         )
