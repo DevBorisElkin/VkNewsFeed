@@ -27,6 +27,9 @@
 		526196D0289AA991008A35E5 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526196CF289AA991008A35E5 /* GalleryCollectionView.swift */; };
 		526196D2289AAA52008A35E5 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526196D1289AAA52008A35E5 /* GalleryCollectionViewCell.swift */; };
 		526196D4289AB3EE008A35E5 /* RowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526196D3289AB3EE008A35E5 /* RowLayout.swift */; };
+		526196D7289ADE84008A35E5 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526196D6289ADE84008A35E5 /* TitleView.swift */; };
+		526196D9289ADF1D008A35E5 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526196D8289ADF1D008A35E5 /* InsertableTextField.swift */; };
+		526196DB289AEE82008A35E5 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526196DA289AEE82008A35E5 /* UserResponse.swift */; };
 		527F6676289694C4004A17B5 /* NewsfeedCellLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F6675289694C4004A17B5 /* NewsfeedCellLayoutCalculator.swift */; };
 		527F66782896C6E1004A17B5 /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F66772896C6E1004A17B5 /* String + Height.swift */; };
 		527F667A2896E3EC004A17B5 /* NewsfeedCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F66792896E3EC004A17B5 /* NewsfeedCodeCell.swift */; };
@@ -76,6 +79,9 @@
 		526196CF289AA991008A35E5 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		526196D1289AAA52008A35E5 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		526196D3289AB3EE008A35E5 /* RowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowLayout.swift; sourceTree = "<group>"; };
+		526196D6289ADE84008A35E5 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		526196D8289ADF1D008A35E5 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
+		526196DA289AEE82008A35E5 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		527F6675289694C4004A17B5 /* NewsfeedCellLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCellLayoutCalculator.swift; sourceTree = "<group>"; };
 		527F66772896C6E1004A17B5 /* String + Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Height.swift"; sourceTree = "<group>"; };
 		527F66792896E3EC004A17B5 /* NewsfeedCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCodeCell.swift; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 		5200D0F12892F9EB00B7AD4D /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				526196D5289ADE69008A35E5 /* TitleView */,
 				526196CE289AA972008A35E5 /* GalleryView */,
 				5200D10228930CB100B7AD4D /* Cell */,
 				5200D1002893006F00B7AD4D /* NewsfeedViewController.storyboard */,
@@ -183,6 +190,15 @@
 			path = GalleryView;
 			sourceTree = "<group>";
 		};
+		526196D5289ADE69008A35E5 /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				526196D6289ADE84008A35E5 /* TitleView.swift */,
+				526196D8289ADF1D008A35E5 /* InsertableTextField.swift */,
+			);
+			path = TitleView;
+			sourceTree = "<group>";
+		};
 		52DE67FA2877907400DBCA3B = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				52F849CD288AF2A40061D223 /* FeedResponse.swift */,
+				526196DA289AEE82008A35E5 /* UserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,7 +346,10 @@
 				52DE68072877907400DBCA3B /* AppDelegate.swift in Sources */,
 				526196CD2899A2B6008A35E5 /* RoundedInt.swift in Sources */,
 				5200D0F92892FA8600B7AD4D /* NewsfeedPresenter.swift in Sources */,
+				526196D9289ADF1D008A35E5 /* InsertableTextField.swift in Sources */,
+				526196DB289AEE82008A35E5 /* UserResponse.swift in Sources */,
 				5200D0FB2892FA8600B7AD4D /* NewsfeedRouter.swift in Sources */,
+				526196D7289ADE84008A35E5 /* TitleView.swift in Sources */,
 				52DE68092877907400DBCA3B /* SceneDelegate.swift in Sources */,
 				525B5D382884AE46009472C1 /* NetworkService.swift in Sources */,
 				5200D0FC2892FA8600B7AD4D /* NewsfeedModels.swift in Sources */,
