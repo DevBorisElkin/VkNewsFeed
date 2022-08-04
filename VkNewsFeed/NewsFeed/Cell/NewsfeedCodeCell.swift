@@ -255,7 +255,8 @@ final class NewsfeedCodeCell : UITableViewCell {
     
     func overlaySecondLayer(){
         cardView.addSubview(topView)
-        cardView.addSubview(postLabel)
+        //cardView.addSubview(postLabel)
+        contentView.addSubview(postLabel)
         contentView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
