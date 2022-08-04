@@ -17,14 +17,17 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     var interactor: NewsfeedBusinessLogic?
     var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
     
-    private var feedViewModel = FeedViewModel(cells: [])
+    private var feedViewModel = FeedViewModel(cells: [], footerTitle: nil)
     
     private var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return refreshControl
     }()
+    
     private var titleView = TitleView()
+    private lazy var footerView = FooterView()
+    
     @IBOutlet weak var table: UITableView!
     
     // MARK: Setup
@@ -68,6 +71,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
         table.backgroundColor = .clear
         
         table.addSubview(refreshControl)
+        table.tableFooterView = footerView
     }
     
     private func setUpTopBars(){
@@ -86,18 +90,19 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
         switch viewModel {
         case .displayNewsfeed(feedViewModel: let feedViewModel):
             self.feedViewModel = feedViewModel
+            footerView.setTitle(title: feedViewModel.footerTitle)
             table.reloadData()
-            
             refreshControl.endRefreshing()
-            
             print("Data received")
         case .displayUser(userViewModel: let userViewModel):
             titleView.set(userViewModel: userViewModel)
+        case .displayFooterLoader:
+            footerView.showLoader()
         }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.1 {
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.05 {
             interactor?.makeRequest(request: .getNextBatch)
         }
     }
