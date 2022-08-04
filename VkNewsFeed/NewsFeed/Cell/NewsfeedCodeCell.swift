@@ -225,7 +225,8 @@ final class NewsfeedCodeCell : UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 1, alpha: 1)
+        //backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 1, alpha: 1)
+        backgroundColor = .clear
         
         iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
         iconImageView.clipsToBounds = true
