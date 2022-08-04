@@ -75,7 +75,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     }
     
     private func setUpTopBars(){
-        self.navigationController?.hidesBarsOnSwipe = true
+        self.navigationController?.hidesBarsOnSwipe = false // set to true to hide
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationItem.titleView = titleView
     }

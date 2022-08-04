@@ -65,8 +65,9 @@ final class NewsfeedCodeCell : UITableViewCell {
     
     let moreTextButton: UIButton = {
         let button = UIButton()
+        var textColor = #colorLiteral(red: 0.2439888418, green: 0.4641402364, blue: 0.655207932, alpha: 1)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        button.setTitleColor(UIColor.blue, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
         button.contentHorizontalAlignment = .left
         button.contentVerticalAlignment = .center
         button.setTitle("Show full text", for: .normal)
@@ -104,7 +105,7 @@ final class NewsfeedCodeCell : UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 0
-        label.textColor = .blue
+        label.textColor = #colorLiteral(red: 0.230227977, green: 0.3829107285, blue: 0.920462966, alpha: 1)
         //label.backgroundColor = .green
         return label
     }()
