@@ -36,6 +36,11 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
             service?.revealPostIds(forPostId: postId, completion: { [weak self] revealedPostIds, feed in
                 self?.presenter?.presentData(response: .presentNewsfeed(feed: feed, revealPostIds: revealedPostIds))
             })
+        case .getNextBatch:
+            print("123")
+            service?.getNextBatch(completion: { revealedPostIds, feed in
+                self.presenter?.presentData(response: .presentNewsfeed(feed: feed, revealPostIds: revealedPostIds))
+            })
         }
     }
 }

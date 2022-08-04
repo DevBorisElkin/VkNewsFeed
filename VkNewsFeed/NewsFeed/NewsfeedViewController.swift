@@ -97,8 +97,8 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height / 2 {
-            print("Scrolled to the middle")
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.1 {
+            interactor?.makeRequest(request: .getNextBatch)
         }
     }
     

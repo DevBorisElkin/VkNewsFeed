@@ -15,6 +15,7 @@ class NewsfeedService {
     
     private var revealedPostIds = [Int]()
     private var feedResponse: FeedResponse?
+    private var newFromInProcess: String?
     
     init() {
         self.authService = SceneDelegate.shared().authService
@@ -29,7 +30,7 @@ class NewsfeedService {
     }
     
     func getFeed(completion: @escaping ([Int], FeedResponse) -> Void){
-        fetcher.getFeed { [weak self] feed in
+        fetcher.getFeed(nextBatchFrom: nil) { [weak self] feed in
             
             self?.feedResponse = feed
             guard let feedResponse = self?.feedResponse else {
@@ -43,5 +44,44 @@ class NewsfeedService {
         revealedPostIds.append(postId)
         guard let feedResponse = self.feedResponse else { return }
         completion(revealedPostIds, feedResponse)
+    }
+    
+    func getNextBatch(completion: @escaping ([Int], FeedResponse) -> Void){
+        newFromInProcess = feedResponse?.nextFrom
+        fetcher.getFeed(nextBatchFrom: newFromInProcess) { [weak self] feed in
+            guard let feed = feed else { return }
+            guard self?.feedResponse?.nextFrom != feed.nextFrom else { return }
+            
+            if self?.feedResponse == nil {
+                self?.feedResponse = feed
+            } else {
+                self?.feedResponse?.items.append(contentsOf: feed.items)
+             
+                // profiles check
+                var profiles = feed.profiles
+                if let oldProfiles = self?.feedResponse?.profiles {
+                    let oldProfilesFiltered = oldProfiles.filter { oldProfile in
+                        !feed.profiles.contains(where: { $0.id == oldProfile.id })
+                    }
+                    profiles.append(contentsOf: oldProfilesFiltered)
+                }
+                self?.feedResponse?.profiles = profiles
+                
+                // groups check
+                var groups = feed.groups
+                if let oldGroups = self?.feedResponse?.groups {
+                    let oldGroupsFiltered = oldGroups.filter { oldGroup in
+                        !feed.groups.contains(where: { $0.id == oldGroup.id })
+                    }
+                    groups.append(contentsOf: oldGroupsFiltered)
+                }
+                self?.feedResponse?.groups = groups
+                
+                self?.feedResponse?.nextFrom = feed.nextFrom
+            }
+            
+            guard let feedResponse = self?.feedResponse else { return }
+            completion(self!.revealedPostIds, feedResponse)
+        }
     }
 }
