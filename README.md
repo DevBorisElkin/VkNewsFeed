@@ -1,4 +1,4 @@
-App that utilizes Vk.com API, made with SwiftBook course
+App that utilizes Vk.com API
 
 Video preview:
 https://www.youtube.com/watch?v=MBNRPqVXKtM
